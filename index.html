@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <title>Pikachu jump</title>
     <link rel="stylesheet" href="style.css">
@@ -16,14 +16,35 @@
 <body>
     <div>
         <h1 class="texto">Precione qualquer tecla para jogar</h1>
+        <h3 class="texto2"> Escolha um pokemon:</h3>
+        
+        
+       </div>
+    <div class="top">
+        <div class="game-board">
+            <img src="image/clouds.png" alt="clouds" class="clouds" >
+            <img src="image/pokebola.png" alt="img" class="pokebola">
+            <img src="image/todos.gif" alt="gif" class="pikachu">
+        </div>
+        <div>
+            <p class="piso"></p>
+        </div>
     </div>
-    <div class="game-board">
-        <img src="image/clouds.png" alt="clouds" class="clouds">
-        <img src="image/pokebola.png" alt="img" class="pokebola">
-        <img src="image/pikachu.gif" alt="gif" class="pikachu">
-    
+
+    <div class="score-placa">
+        <div class="placa"> 
+            <h1> Score</h1>
+        </div>
+        <div class="num-score">
+            <p id="score">0</p>
+        </div>
     </div>
-    
+        <div class="posts">
+            <img src="image/post.png" onclick="pichu()">
+            <img src="image/post2.png" onclick="pikachuzinho()">
+            <img src="image/post3.png" onclick="raichu()">
+        </div>
+
 
 </body>
 
