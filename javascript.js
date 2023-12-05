@@ -4,6 +4,8 @@ const pokebola = document.querySelector('.pokebola');
 //imagem da pokebola
 const texto = document.querySelector('.texto');
 //paragrafo para o texto "game over"
+const posts = document.querySelector('.posts');
+const scoreplaca = document.querySelector('.score-placa');
 var scores = document.querySelector('#score');
 var score = Number(scores.textContent);
 
@@ -18,16 +20,23 @@ novaImagem3.src = 'image/raichu.gif';
 
 function substituirPorGIF() {
     pikachu.src = novaImagem.src;
-   
 }
 function substituirPorGIF2() {
     pikachu.src = novaImagem2.src;
-   
 }
 function substituirPorGIF3() {
     pikachu.src = novaImagem3.src;
-   
 }
+
+function jogoiniciado() {
+    document.addEventListener('keydown', jump);
+    scoreplaca.style.display = "flex";
+    pokebola.style.display = "flex";
+    posts.innerText = "";
+    texto.innerHTML="Pressione qualquer tecla para pular"; 
+    pokebola.classList.add('animar');
+}
+
 
 
 const jump = () => {
@@ -42,23 +51,22 @@ const jump = () => {
 
     }, 500);
 }
-function alerta() {
-    alert('Seu Score foi zerado')
-}
 function scoreadd() {
     score ++;
     scores.textContent = score;
 }
 
-document.addEventListener('keydown', jump);
+scoreplaca.style.display = "none";
+pokebola.style.display = "none";
+
 
 function pichu(){
     substituirPorGIF();
+    jogoiniciado();
     pikachu.style.width = '200px';
-    pokebola.classList.add('animar');
+
 const loop = setInterval(() => {
 
-    
     const pokebolaPosition = pokebola.offsetLeft;
     //pega a posição atual da pokebola no eixo x
     const pikachuPosition = +window.getComputedStyle(pikachu).bottom.replace('px', '');
@@ -72,9 +80,7 @@ const loop = setInterval(() => {
         pokebola.style.left = `${pokebolaPosition}px`;
         //faz a pokebola parar exatamente na posição em que encostou no pikachu
 
-
         pikachu.style.animation = 'none';
-        //remove a animação do pikachu
         pikachu.style.left = `${pikachuPosition+15}px`;
         //faz a pikachu parar exatamente na posição em que encostou na pokebola
 
@@ -90,7 +96,6 @@ const loop = setInterval(() => {
         clearInterval(loop);
 
         document.addEventListener('keydown', () => {
-            alerta()
             location.reload();
             //toda vez que ele perder se precionar uma tecla, a pagina regarrega e o jogo recomeça
         })
@@ -106,8 +111,9 @@ const loop = setInterval(() => {
 
 function pikachuzinho(){
     substituirPorGIF2();
+    jogoiniciado();
     pikachu.style.width = '200px';
-    pokebola.classList.add('animar');
+
 
     const loop = setInterval(() => {
     
@@ -143,7 +149,6 @@ function pikachuzinho(){
             clearInterval(loop);
     
             document.addEventListener('keydown', () => {
-                alerta()
                 location.reload();
                 //toda vez que ele perder se precionar uma tecla, a pagina regarrega e o jogo recomeça
             })
@@ -155,12 +160,12 @@ function pikachuzinho(){
     
     }, 10)
     
-    }
+}
 
 function raichu(){
     substituirPorGIF3();
+    jogoiniciado();
     pikachu.style.width = '170px';
-        pokebola.classList.add('animar');
 
         const loop = setInterval(() => {
         
@@ -195,7 +200,6 @@ function raichu(){
                 clearInterval(loop);
         
                 document.addEventListener('keydown', () => {
-                    alerta()
                     location.reload();
                     //toda vez que ele perder se precionar uma tecla, a pagina regarrega e o jogo recomeça
                 })
@@ -207,6 +211,6 @@ function raichu(){
         
         }, 10)
         
-        }
+}
 
 
